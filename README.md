@@ -1,2 +1,2 @@
-# Artificial-Neuroscience-metrology-and-engineering-for-Deep-Learning-using-Linear-Algebra
+# Artificial-Neuroscience-Metrology-and-Engineering-for-Deep-Learning-using-Linear-Algebra
 UKRI (UK Research and Innovation) EPSRC (Engineering and Physical Sciences Research Council) Discipline Hopping in ICT Grant (with the School of Mathematical Sciences). School of EECS, Queen Mary University of London. Postdoctoral Research Associate in Centre for Digital Music and Centre for Fundamentals of AI and Computational Theory. 2025-2026.

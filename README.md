@@ -5,3 +5,5 @@
 - To gain a deeper understanding of the **correlation structure in audio processing neural networks**, we apply Empirical Spectral Density (ESD) techniques to weight matrices to investigate the dynamics of training.
 
 - To build more **efficient, compact, and less energy-consuming neural networks**, we employ tensor decomposition on the weight matrices and examine the effects of low-rank approximation on the neural network behaviors.
+
+[Video Demo](https://www.youtube.com/watch?v=fL-FDF-Iojk&list=PLWSd-mlbNCAWjovFmisi1asUd0StPzdPc&index=2)

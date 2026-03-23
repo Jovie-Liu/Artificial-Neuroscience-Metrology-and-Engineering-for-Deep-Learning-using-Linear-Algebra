@@ -32,6 +32,6 @@ In the first phase of this project, we investigate the low-rank structure of the
    
    - **Fine-Tuned Truncated Model Validation Loss:** -14.23
    
-   slightly better than the original full model (Validation Loss: -14.21).
+   Slightly better than the original full model (Validation Loss: -14.21).
 
 This result suggests that low-rank reduction is not merely a compression technique for reducing parameter count. More importantly, it may uncover a **better structural form** of the weight matrix—one that removes redundant directions, preserves the most informative components, and yields a more efficient representation for the task. In this sense, low-rank structure may serve not only as a tool for model compression, but also as a form of **inductive bias** that improves optimization and generalization.

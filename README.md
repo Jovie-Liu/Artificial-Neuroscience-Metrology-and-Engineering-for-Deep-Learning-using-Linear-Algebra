@@ -10,7 +10,7 @@
 
 ## Research Phase I: Low-Rank Structure in Linear Weights
 
-In the first phase of this project, we investigate the low-rank structure of the linear weights in **Conv-TasNet**, focusing on the pointwise convolution layers ([Video Demo](https://www.youtube.com/watch?v=fL-FDF-Iojk&list=PLWSd-mlbNCAWjovFmisi1asUd0StPzdPc&index=2)). Specifically, we study whether singular value decomposition (SVD) can reveal redundant directions in these learned weights, allowing us to compress the model while preserving its source separation performance.
+In the first phase of this project, we investigate the low-rank structure of the linear weights in [**Conv-TasNet**](https://arxiv.org/pdf/1809.07454), focusing on the pointwise convolution layers ([Video Demo](https://www.youtube.com/watch?v=fL-FDF-Iojk&list=PLWSd-mlbNCAWjovFmisi1asUd0StPzdPc&index=2)). Specifically, we study whether singular value decomposition (SVD) can reveal redundant directions in these learned weights, allowing us to compress the model while preserving its source separation performance.
 
 ### [Experimental Procedure](https://github.com/Jovie-Liu/Artificial-Neuroscience-Metrology-and-Engineering-for-Deep-Learning-using-Linear-Algebra/blob/main/Document%201_1%20Low%20Rank%20Structure%20on%20Linear%20Weights%20%5BFull%5D.ipynb)
 

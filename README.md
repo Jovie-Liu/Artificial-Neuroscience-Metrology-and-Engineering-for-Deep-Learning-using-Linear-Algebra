@@ -56,7 +56,7 @@ Start from the **best vanilla Conv-TasNet checkpoint**, replace all pointwise li
 - Around **$k_{\mathrm{eff}}$**: best **compression/performance trade-off**.  
 - Above **$k_{\mathrm{eff}}$**: only tiny gains, but compression quickly disappears.
 
-<img src="experiment1_plot.jpg" style="width:800px">
+<img src="experiment1_plot.jpg" style="width:700px">
 
 **This plot is a visualization of the results in the above table, and it shows:**
 - Aggressive truncation hurts immediately, but fine-tuning recovers much of the loss.  

@@ -1,6 +1,6 @@
 # Artificial-Neuroscience-Metrology-and-Engineering-for-Deep-Learning-using-Linear-Algebra
 
-- The project titled *Artificial Neuroscience: Metrology and Engineering for Deep Learning Using Linear Algebra* is a UKRI (UK Research and Innovation) funded EPSRC (Engineering and Physical Sciences Research Council) Discipline Hopping in ICT Grant featuring collaborations between the School of Electronic Engineering and Computer Science and the School of Mathematical Sciences at Queen Mary University of London, United Kingdom. Associated with the Centre for Digital Music ([C4DM](https://www.c4dm.eecs.qmul.ac.uk/people/)) and the [Centre for Fundamentals of AI and Computational Theory](https://www.seresearch.qmul.ac.uk/cfcs/people/jiliu/), I work as a Postdoctoral Research Associate co-supervised by [Prof. Mark Sandler](https://www.seresearch.qmul.ac.uk/cmai/people/msandler/#grants) and [Prof. Boris Khoruzhenko](https://www.seresearch.qmul.ac.uk/cpsd/people/bkhoruzhenko/#grants).
+- The project titled *[Artificial Neuroscience: Metrology and Engineering for Deep Learning Using Linear Algebra](https://gtr.ukri.org/projects?ref=EP%2FZ535448%2F1)* is a UKRI (UK Research and Innovation) EPSRC (Engineering and Physical Sciences Research Council) Discipline Hopping in ICT Grant featuring collaborations between the School of Electronic Engineering and Computer Science and the School of Mathematical Sciences at Queen Mary University of London, United Kingdom. Associated with the Centre for Digital Music ([C4DM](https://www.c4dm.eecs.qmul.ac.uk/people/)) and the [Centre for Fundamentals of AI and Computational Theory](https://www.seresearch.qmul.ac.uk/cfcs/people/jiliu/), I work as a Postdoctoral Research Associate co-supervised by [Prof. Mark Sandler](https://www.seresearch.qmul.ac.uk/cmai/people/msandler/#grants) and [Prof. Boris Khoruzhenko](https://www.seresearch.qmul.ac.uk/cpsd/people/bkhoruzhenko/#grants).
 
 - To gain a deeper understanding of the **correlation structure in audio processing neural networks**, we apply Empirical Spectral Density (ESD) techniques to weight matrices to investigate the dynamics of training.
 
@@ -10,9 +10,7 @@
 
 ## Research Phase I: Low-Rank Structure in Linear Weights
 
-In the first phase of this project, we investigate the low-rank structure of the linear weights in [**Conv-TasNet**](https://arxiv.org/pdf/1809.07454), focusing on the pointwise convolution layers ([Video Demo](https://www.youtube.com/watch?v=fL-FDF-Iojk&list=PLWSd-mlbNCAWjovFmisi1asUd0StPzdPc&index=2)). Specifically, we study whether singular value decomposition (SVD) can reveal redundant directions in these learned weights, allowing us to compress the model while preserving its source separation performance.
-
-We compress **all 74 pointwise $1\times1$ convolution layers** in Conv-TasNet using **layer-wise truncated SVD**, where each layer’s rank is chosen relative to its own **effective rank**. All results below use **Libri2Mix (8 kHz, min mode)** and report **validation loss = negative SI-SNR** (**lower is better**).
+In the first phase of this project, we investigate the low-rank structure of the linear weights in [**Conv-TasNet**](https://arxiv.org/pdf/1809.07454), focusing on the pointwise convolution layers ([Video Demo](https://www.youtube.com/watch?v=fL-FDF-Iojk&list=PLWSd-mlbNCAWjovFmisi1asUd0StPzdPc&index=2)). Specifically, we study whether singular value decomposition (SVD) can reveal redundant directions in these learned weights, allowing us to compress the model while preserving its source separation performance. We compress **all 74 pointwise $1\times1$ convolution layers** in Conv-TasNet using **layer-wise truncated SVD**, where each layer’s rank is chosen relative to its own **effective rank**. All results below use **Libri2Mix (8 kHz, min mode)** and report **validation loss = negative SI-SNR** (**lower is better**).
 
 ### Quick takeaways
 
@@ -25,13 +23,16 @@ We compress **all 74 pointwise $1\times1$ convolution layers** in Conv-TasNet us
 - **Training a factorized model from scratch is much worse.**  
   A short period of normal Conv-TasNet training provides a much better starting point.
 
+---
+
 ### Experiment 1 — Post-hoc factorization + fine-tuning
 
 Start from the **best vanilla Conv-TasNet checkpoint**, replace all pointwise linear layers with factorized versions, then fine-tune.
 
 **Baseline validation loss:** `-14.2096`
 
-![Experiment 1: loss/compression vs rank ratio](./assets/experiment1_column.png)
+<img src="experiment1_plot.pdf" style="width:800px">
+<caption><center> Figure 1:  </center></caption>
 
 **What the plot shows:**  
 - Aggressive truncation hurts immediately, but fine-tuning recovers much of the loss.  

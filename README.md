@@ -31,14 +31,8 @@ Start from the **best vanilla Conv-TasNet checkpoint**, replace all pointwise li
 
 **Baseline validation loss:** `-14.2096`
 
-![Experiment 1](experiment1_plot.png)
-
-**What the plot shows:**  
-- Aggressive truncation hurts immediately, but fine-tuning recovers much of the loss.  
-- The most interesting region is around **$k_{\mathrm{eff}}$**, where the model stays smaller **and** performs as well as or slightly better than the baseline.
-
-| Rank ratio | Compression | Initial loss | Best loss after FT |
-|---|---:|---:|---:|
+| Effective Rank Ratio | Model Compression Ratio | Factored Initial Loss | Best Loss after Fine-tuning |
+|:---:|:---:|:---:|:---:|
 | Baseline | 1.00× | -- | -14.2096 |
 | 0.1 | 8.71× | 0.7177 | -9.8351 (ep +56) |
 | 0.2 | 4.93× | 1.3163 | -12.2977 (ep +51) |
@@ -62,6 +56,12 @@ Start from the **best vanilla Conv-TasNet checkpoint**, replace all pointwise li
 - Around **$k_{\mathrm{eff}}$**: best **compression/performance trade-off**.  
 - Above **$k_{\mathrm{eff}}$**: only tiny gains, but compression quickly disappears.
 
+<img src="experiment1_plot.jpg" style="width:800px">
+
+**This plot is a visualization of the results in the above table, and it shows:**
+- Aggressive truncation hurts immediately, but fine-tuning recovers much of the loss.  
+- The most interesting region is around **$k_{\mathrm{eff}}$**, where the model stays smaller **and** performs as well as or slightly better than the baseline.
+
 ---
 
 ### Experiment 2 — Early-epoch factorization + continued training
@@ -74,12 +74,12 @@ Instead of waiting for full convergence, we factorize the model at **epoch 1, 5,
 | Epoch 5 ($k_{\mathrm{eff}}$) | 1.34× | -13.7195 (ep +88) | -9.6479 / -9.6290 |
 | Epoch 1 ($k_{\mathrm{eff}}$) | 1.39× | -13.5912 (ep +95) | -5.8962 / -5.8926 |
 | Random init ($k_{\mathrm{eff}}$) | 1.10× | -8.4764 (ep +100) | -- / -- |
-| Epoch 10 ($0.5\,k_{\mathrm{eff}}$) | 2.39× | -13.6216 (ep +83) | -10.8078 / -10.1671 |
-| Epoch 5 ($0.5\,k_{\mathrm{eff}}$) | 2.59× | -13.3547 (ep +81) | -9.6479 / -9.3568 |
-| Epoch 1 ($0.5\,k_{\mathrm{eff}}$) | 2.68× | -13.3419 (ep +89) | -5.8962 / -5.8578 |
-| Epoch 10 ($0.25\,k_{\mathrm{eff}}$) | 4.49× | -12.9179 (ep +69) | -10.8078 / -7.7510 |
-| Epoch 5 ($0.25\,k_{\mathrm{eff}}$) | 4.84× | -12.2960 (ep +85) | -9.6479 / -7.8804 |
-| Epoch 1 ($0.25\,k_{\mathrm{eff}}$) | 4.99× | -12.5440 (ep +85) | -5.8962 / -5.7438 |
+| Epoch 10 ($0.5 \ k_{\mathrm{eff}}$) | 2.39× | -13.6216 (ep +83) | -10.8078 / -10.1671 |
+| Epoch 5 ($0.5\ k_{\mathrm{eff}}$) | 2.59× | -13.3547 (ep +81) | -9.6479 / -9.3568 |
+| Epoch 1 ($0.5\ k_{\mathrm{eff}}$) | 2.68× | -13.3419 (ep +89) | -5.8962 / -5.8578 |
+| Epoch 10 ($0.25\ k_{\mathrm{eff}}$) | 4.49× | -12.9179 (ep +69) | -10.8078 / -7.7510 |
+| Epoch 5 ($0.25\ k_{\mathrm{eff}}$) | 4.84× | -12.2960 (ep +85) | -9.6479 / -7.8804 |
+| Epoch 1 ($0.25\ k_{\mathrm{eff}}$) | 4.99× | -12.5440 (ep +85) | -5.8962 / -5.7438 |
 
 **Summary:**  
 - Early factorization **works surprisingly well**, especially from **epoch 10**.  

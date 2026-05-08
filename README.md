@@ -31,7 +31,7 @@ Start from the **best vanilla Conv-TasNet checkpoint**, replace all pointwise li
 
 **Baseline validation loss:** `-14.2096`
 
-| Effective Rank Ratio | Model Compression Ratio | Factored Initial Loss | Best Loss after Fine-tuning |
+| Effective Rank Ratio | Model Compression Ratio | Initial Factored Loss | Best Loss after Fine-tuning |
 |:---:|:---:|:---:|:---:|
 | Baseline | 1.00× | -- | -14.2096 |
 | 0.1 | 8.71× | 0.7177 | -9.8351 (ep +56) |
@@ -68,7 +68,7 @@ Start from the **best vanilla Conv-TasNet checkpoint**, replace all pointwise li
 
 Instead of waiting for full convergence, we factorize the model at **epoch 1, 5, or 10**, then continue training.
 
-| Setting | Compression | Best loss after training | Checkpoint / initial factored loss |
+| Setting | Compression Ratio | Best Loss after Training | Checkpoint / Initial Factored Loss |
 |---|---:|---:|---:|
 | Epoch 10 ($k_{\mathrm{eff}}$) | 1.24× | **-13.9449** (ep +81) | -10.8078 / -10.7734 |
 | Epoch 5 ($k_{\mathrm{eff}}$) | 1.34× | -13.7195 (ep +88) | -9.6479 / -9.6290 |
@@ -87,9 +87,3 @@ Instead of waiting for full convergence, we factorize the model at **epoch 1, 5,
 - **Random-init factorized training is much worse**, suggesting that a short full-parameter warm-up is important.  
 - The same pattern remains: **$k_{\mathrm{eff}}$** is the best trade-off, while stronger compression is possible with a gradual drop in SI-SNR.
 
----
-
-### Main message
-
-**Conv-TasNet’s pointwise linear layers are highly compressible.**  
-Using **effective-rank-guided SVD factorization**, we can reduce parameters substantially while keeping similar separation quality — and in the most interesting region near **$k_{\mathrm{eff}}$**, the compressed model can even slightly outperform the original baseline after fine-tuning.

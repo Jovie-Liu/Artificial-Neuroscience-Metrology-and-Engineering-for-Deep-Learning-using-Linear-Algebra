@@ -31,8 +31,7 @@ Start from the **best vanilla Conv-TasNet checkpoint**, replace all pointwise li
 
 **Baseline validation loss:** `-14.2096`
 
-<img src="experiment1_plot.pdf" style="width:800px">
-<caption><center> Figure 1:  </center></caption>
+![Experiment 1](experiment1_plot.png)
 
 **What the plot shows:**  
 - Aggressive truncation hurts immediately, but fine-tuning recovers much of the loss.  
